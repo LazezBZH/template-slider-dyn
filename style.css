@@ -1,0 +1,87 @@
+body {
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+.collection {
+  border-top: 1px solid #fff3;
+  border-bottom: 1px solid #fff3;
+  display: flex;
+  align-items: center;
+}
+
+.collection .previous,
+.collection .next {
+  cursor: pointer;
+  height: 1vw;
+  width: 1vw;
+  opacity: 0.5;
+  transition: opacity 0.4s;
+  margin: 0 2vmin;
+}
+
+.collection .previous {
+  background: url("/arrowleft.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.collection .next {
+  background: url("/arrowright.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.collection .previous:hover,
+.collection .next:hover {
+  opacity: 1;
+}
+
+#root {
+  width: 65%;
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.work {
+  width: 30%;
+}
+.carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-header {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+.carousel figure {
+  width: 100%;
+  font-size: 1.5rem;
+}
+.carousel figure img {
+  width: 100%;
+  height: 20dvh;
+  object-fit: cover;
+  border: solid 2px white;
+}
+.carousel figcaption {
+  text-align: center;
+}
+.carousel-header button {
+  border: none;
+  background-color: transparent;
+}
+.carousel a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+}
