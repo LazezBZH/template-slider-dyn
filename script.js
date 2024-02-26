@@ -16,8 +16,6 @@ fetch("data.json")
     let lastArticle = "";
 
     let totalArticles = json.articles.length;
-    // let firstArticle = 0;
-    // let lastArticle = 2;
     let numberOfPages = "";
 
     const currentPageDisplay = document.querySelector(".current-page");
