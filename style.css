@@ -1,87 +1,132 @@
+*,
+*:before,
+*::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
 body {
   background-color: rgb(20, 20, 20);
   color: white;
 }
-.collection {
-  border-top: 1px solid #fff3;
-  border-bottom: 1px solid #fff3;
-  display: flex;
-  align-items: center;
-}
-
-.collection .previous,
-.collection .next {
-  cursor: pointer;
-  height: 1vw;
-  width: 1vw;
-  opacity: 0.5;
-  transition: opacity 0.4s;
-  margin: 0 2vmin;
-}
-
-.collection .previous {
-  background: url("/arrowleft.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.collection .next {
-  background: url("/arrowright.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.collection .previous:hover,
-.collection .next:hover {
-  opacity: 1;
-}
-
-#root {
-  width: 65%;
-  display: flex;
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  flex-wrap: wrap;
-}
-.work {
-  width: 30%;
-}
-.carousel {
+.carrousel {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-
-.carousel-header {
+.carrousel-header {
   width: 60%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   font-size: 2rem;
 }
-.carousel figure {
+
+.carrousel-header p,
+.pagination {
+  padding: 1rem 0rem;
+}
+.pagination {
+  border-top: 1px solid #fff3;
+  border-bottom: 1px solid #fff3;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.carrousel-header button {
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  opacity: 0.5;
+  transition: opacity 0.4s;
+}
+
+.previous {
+  background: url("/arrowleft.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.next {
+  background: url("/arrowright.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.previous:hover,
+.next:hover {
+  opacity: 1;
+}
+
+#root {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.article {
+  width: 30%;
+}
+
+.carrousel figure {
   width: 100%;
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.carousel figure img {
-  width: 100%;
-  height: 20dvh;
+.carrousel figure img {
+  width: 20dvw;
+  height: 20dvw;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: cover;
-  border: solid 2px white;
+  border: solid 2px rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
 }
-.carousel figcaption {
+.carrousel figcaption * {
   text-align: center;
+  padding: 1rem 0 0 0;
 }
-.carousel-header button {
-  border: none;
-  background-color: transparent;
-}
-.carousel a {
-  text-decoration: none;
+
+.carrousel a {
   color: white;
   display: flex;
+}
+
+@media screen and (max-width: 800px) {
+  #root {
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 10rem;
+  }
+  .article {
+    width: 100%;
+
+    padding-top: 0rem;
+  }
+  .carrousel figure {
+    width: 80dvw;
+    margin: auto;
+  }
+  .carrousel figure img {
+    width: 60dvw;
+    height: 60dvw;
+  }
+  .carrousel {
+    position: relative;
+  }
+  .pagination {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
