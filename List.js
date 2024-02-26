@@ -11,7 +11,7 @@ export default class List {
 
   displayArticles(articles) {
     let html = "";
-    console.log("coucou", articles);
+
     for (let i = 0; i < articles.length; i++) {
       let article = new Article(articles[i]);
       html += article.render();

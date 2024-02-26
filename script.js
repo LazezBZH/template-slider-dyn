@@ -54,7 +54,15 @@ fetch("data.json")
       firstArticle = (currentPage - 1) * numberTodisplay;
       lastArticle = Math.min(totalArticles - 1, firstArticle + 2);
       articleArray = [];
+
       displayAll();
+      const article = document.querySelectorAll(".article");
+      article.forEach((art) => {
+        art.classList.add("rotate");
+        setTimeout(() => {
+          art.classList.remove("rotate");
+        }, "20");
+      });
     }
     function goPrevious() {
       if (currentPage === 1) {
@@ -67,6 +75,13 @@ fetch("data.json")
       lastArticle = Math.min(totalArticles - 1, firstArticle + 2);
       articleArray = [];
       displayAll();
+      const article = document.querySelectorAll(".article");
+      article.forEach((art) => {
+        art.classList.add("rotate-inv");
+        setTimeout(() => {
+          art.classList.remove("rotate-inv");
+        }, "20");
+      });
     }
 
     function goNextMobil() {
@@ -79,6 +94,12 @@ fetch("data.json")
       lastArticle = currentPage - 1;
       articleArray = [];
       displayAll();
+      const art = document.querySelector(".article");
+
+      art.classList.add("rotate_mob");
+      setTimeout(() => {
+        art.classList.remove("rotate_mob");
+      }, "200");
     }
     function goPreviousMobil() {
       if (currentPage === 1) {
@@ -91,6 +112,12 @@ fetch("data.json")
       lastArticle = currentPage - 1;
       articleArray = [];
       displayAll();
+      const art = document.querySelector(".article");
+
+      art.classList.add("rotate-inv_mob");
+      setTimeout(() => {
+        art.classList.remove("rotate-inv_mob");
+      }, "200");
     }
 
     function displayAll() {
