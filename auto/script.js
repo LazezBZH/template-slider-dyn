@@ -29,6 +29,35 @@ fetch("/data.json")
     autoStop.addEventListener("click", setRun);
     window.addEventListener("load", runAuto);
 
+    const cards = document.querySelector("#root");
+    cards.addEventListener("mouseenter", stopAuto);
+    cards.addEventListener("mouseleave", runAuto);
+    function showNext() {
+      if (firstArticle == totalArticles - 1) firstArticle = -1;
+      firstArticle++;
+      init();
+    }
+
+    function setRun() {
+      auto = !auto;
+      if (auto) {
+        runAuto();
+      } else if (!auto) {
+        stopAuto();
+      }
+      console.log(auto);
+    }
+    function runAuto() {
+      auto = true;
+      autoStop.innerHTML = `STOP`;
+      autoInterval = setInterval(showNext, timing);
+    }
+
+    function stopAuto() {
+      auto = false;
+      autoStop.innerHTML = `AUTO`;
+      clearInterval(autoInterval);
+    }
     function init() {
       let list = new List();
       let articleArray = [];
@@ -68,33 +97,4 @@ fetch("/data.json")
       }
     }
     init();
-    const cards = document.querySelector("#root");
-    cards.addEventListener("mouseenter", stopAuto);
-    cards.addEventListener("mouseleave", runAuto);
-    function showNext() {
-      if (firstArticle == totalArticles - 1) firstArticle = -1;
-      firstArticle++;
-      init();
-    }
-
-    function setRun() {
-      auto = !auto;
-      if (auto) {
-        runAuto();
-      } else if (!auto) {
-        stopAuto();
-      }
-      console.log(auto);
-    }
-    function runAuto() {
-      auto = true;
-      autoStop.innerHTML = `STOP`;
-      autoInterval = setInterval(showNext, timing);
-    }
-
-    function stopAuto() {
-      auto = false;
-      autoStop.innerHTML = `AUTO`;
-      clearInterval(autoInterval);
-    }
   });
