@@ -141,8 +141,8 @@ h1 {
   }
 
   .pagination {
-    position: absolute;
-    bottom: 50px;
+    position: fixed;
+    top: 80dvh;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -150,9 +150,9 @@ h1 {
 
 footer {
   position: fixed;
-  bottom: 0;
+  top: 100dvh;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
   width: 95dvw;
   display: flex;
   justify-content: space-between;

@@ -10,21 +10,21 @@ fetch("/data.json")
     return response.json();
   })
   .then(function (json) {
-    let numberTodisplay = "";
-    let firstArticle = "";
+    let numberTodisplay = 3;
+    let firstArticle = 0;
     let autoInterval = "";
     let totalArticles = json.articles.length;
     const autoStop = document.querySelector(".auto-stop");
     let auto = true;
     let timing = 1500;
 
-    if (window.innerWidth > 800) {
-      firstArticle = 0;
-      numberTodisplay = 3;
-    } else {
-      numberTodisplay = 1;
-      firstArticle = 0;
-    }
+    // if (window.innerWidth > 800) {
+    //   firstArticle = 0;
+    //   numberTodisplay = 3;
+    // } else {
+    //   numberTodisplay = 1;
+    //   firstArticle = 0;
+    // }
 
     autoStop.addEventListener("click", setRun);
     window.addEventListener("load", runAuto);
@@ -32,29 +32,40 @@ fetch("/data.json")
     function init() {
       let list = new List();
       let articleArray = [];
-      for (let i = firstArticle; i < firstArticle + numberTodisplay; i++) {
-        let j = "";
-        if (i < 0) {
-          j = i + totalArticles;
-          articleArray.push(j);
-        } else if (i > totalArticles - 1) {
-          j = i - totalArticles;
-          articleArray.push(j);
-        } else articleArray.push(i);
-      }
-      articleArray.forEach((element) => {
-        let article = new Article(json.articles[element]);
-        list.add(article);
-      });
+      if (window.innerWidth > 800) {
+        for (let i = firstArticle; i < firstArticle + numberTodisplay; i++) {
+          let j = "";
+          if (i < 0) {
+            j = i + totalArticles;
+            articleArray.push(j);
+          } else if (i > totalArticles - 1) {
+            j = i - totalArticles;
+            articleArray.push(j);
+          } else articleArray.push(i);
+        }
+        articleArray.forEach((element) => {
+          let article = new Article(json.articles[element]);
+          list.add(article);
+        });
 
-      list.displayArticles(list.all);
-      const article = document.querySelectorAll(".article");
-      article.forEach((art) => {
-        art.classList.add("rotate");
+        list.displayArticles(list.all);
+        const article = document.querySelectorAll(".article");
+        article.forEach((art) => {
+          art.classList.add("rotate");
+          setTimeout(() => {
+            art.classList.remove("rotate");
+          }, "20");
+        });
+      } else {
+        let articleAlone = new Article(json.articles[firstArticle]);
+        list.add(articleAlone);
+        list.displayArticles(list.all);
+        const article = document.querySelector(".article");
+        article.classList.add("rotate");
         setTimeout(() => {
-          art.classList.remove("rotate");
+          article.classList.remove("rotate");
         }, "20");
-      });
+      }
     }
     init();
     const cards = document.querySelector("#root");
