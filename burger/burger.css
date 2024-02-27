@@ -1,0 +1,103 @@
+/* burger */
+.hidden {
+  visibility: hidden;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* remove blue outline */
+button:focus {
+  outline: 0;
+}
+
+.burger-button {
+  position: relative;
+  height: 1rem;
+  width: 2rem;
+  margin-right: 2rem;
+  margin-top: 1.8rem;
+
+  display: block;
+  z-index: 999;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  pointer-events: all;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.burger-bar {
+  background-color: #d0d6f9;
+
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  left: 6px;
+  height: 2px;
+  width: auto;
+
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.burger-bar--1 {
+  -webkit-transform: translateY(-6px);
+  transform: translateY(-6px);
+}
+
+.burger-button:hover .burger-bar--2 {
+  transform: scaleX(1);
+}
+
+.burger-bar--3 {
+  transform: translateY(6px);
+}
+
+#burger {
+  position: absolute;
+  width: 100dvw;
+  left: 0;
+  top: 0;
+  padding-left: 10px;
+  background-color: rgb(20, 20, 20);
+  z-index: 1;
+}
+#burger li {
+  margin: 2rem;
+  display: none;
+}
+#burger.active li {
+  display: inherit;
+}
+#burger.active li:hover {
+  opacity: 0.3;
+}
+#burger.active .burger-button {
+  transform: rotate(-180deg);
+}
+
+#burger.active .burger-bar {
+  background-color: #fff;
+}
+
+#burger.active .burger-bar--1 {
+  transform: rotate(45deg);
+}
+
+#burger.active .burger-bar--2 {
+  opacity: 0;
+}
+
+#burger.active .burger-bar--3 {
+  transform: rotate(-45deg);
+}
+#burger nav a {
+  color: white;
+  font-size: 1.5rem;
+}
+#burger nav .current a {
+  color: rgb(1, 175, 175);
+}

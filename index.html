@@ -2,10 +2,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/burger/burger.css">
     <title>Slider dynamique (modèle)</title>
 </head>
 <body>
+
+    <div id="burger">
+    
+      <button type="button" class="burger-button" title="Menu">
+        <span class="hidden">Toggle menu</span>
+        <span class="burger-bar burger-bar--1"></span>
+        <span class="burger-bar burger-bar--2"></span>
+        <span class="burger-bar burger-bar--3"></span>
+      </button>
+      <nav>
+        <ul>
+          <li class="current"><a href="/">Carrousel simple</a></li>
+          <li><a href="/auto">Carrousel autoplay</a></li>
+        </ul>
+        
+        
+      </nav>
+
+    </div>
 
    <section class="carrousel">
     <div class="carrousel-header">
@@ -28,7 +48,8 @@
        <a href="/auto/"><img src="curved-arrow-next.svg" alt=""></a>
     </footer>
 
-    <script type="module" src="script.js"></script>
+    <script type="module" src="/script.js"></script>
+    <script src="/burger/burger.js"></script>
 </body>
 
 </html>
