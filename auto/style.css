@@ -13,7 +13,8 @@ body {
 }
 h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 .carrousel {
   width: 100%;
@@ -36,13 +37,7 @@ h1 {
 .pagination {
   padding: 1rem 0rem;
 }
-/* .pagination {
-  border-top: 1px solid #fff3;
-  border-bottom: 1px solid #fff3;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-} */
+
 .carrousel-header button {
   width: 100px;
   height: 50px;
@@ -51,10 +46,11 @@ h1 {
   opacity: 1;
   transition: all 0.4s;
   border-radius: 5px;
+  font-weight: bolder;
+  font-size: 1.2rem;
 }
 
 .carrousel-header button:hover {
-  color: white;
   background-color: black;
   border: solid 1px white;
   opacity: 0.7;

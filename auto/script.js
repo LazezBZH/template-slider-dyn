@@ -6,7 +6,7 @@ fetch("/data.json")
     if (!response.ok) {
       throw new Error("HTTP error, status = " + response.status);
     }
-    console.log(response.json);
+
     return response.json();
   })
   .then(function (json) {
@@ -18,20 +18,8 @@ fetch("/data.json")
     let auto = true;
     let timing = 1500;
 
-    // if (window.innerWidth > 800) {
-    //   firstArticle = 0;
-    //   numberTodisplay = 3;
-    // } else {
-    //   numberTodisplay = 1;
-    //   firstArticle = 0;
-    // }
-
     autoStop.addEventListener("click", setRun);
-    window.addEventListener("load", runAuto);
 
-    const cards = document.querySelector("#root");
-    cards.addEventListener("mouseenter", stopAuto);
-    cards.addEventListener("mouseleave", runAuto);
     function showNext() {
       if (firstArticle == totalArticles - 1) firstArticle = -1;
       firstArticle++;
@@ -45,17 +33,19 @@ fetch("/data.json")
       } else if (!auto) {
         stopAuto();
       }
-      console.log(auto);
     }
     function runAuto() {
       auto = true;
       autoStop.innerHTML = `STOP`;
+      autoStop.style.color = "red";
       autoInterval = setInterval(showNext, timing);
     }
+    runAuto();
 
     function stopAuto() {
       auto = false;
       autoStop.innerHTML = `AUTO`;
+      autoStop.style.color = "rgb(1, 175, 175)";
       clearInterval(autoInterval);
     }
     function init() {
@@ -84,6 +74,12 @@ fetch("/data.json")
           setTimeout(() => {
             art.classList.remove("rotate");
           }, "20");
+        });
+
+        const cards = document.querySelectorAll(".article");
+        cards.forEach((element) => {
+          element.addEventListener("mouseenter", stopAuto);
+          element.addEventListener("mouseleave", runAuto);
         });
       } else {
         let articleAlone = new Article(json.articles[firstArticle]);
