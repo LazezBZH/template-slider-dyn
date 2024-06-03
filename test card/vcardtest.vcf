@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN;CHARSET=UTF-8:Bénédicte HÉRAULT
+N;CHARSET=UTF-8:HÉRAULT;Bénédicte;;;
+BDAY:19670829
+EMAIL;CHARSET=UTF-8;type=HOME,INTERNET:34bzh22@gmail.com
+EMAIL;CHARSET=UTF-8;type=WORK,INTERNET:lazez.bzh.sites.web@caramail.fr
+TEL;TYPE=HOME,VOICE:0643142115
+ADR;CHARSET=UTF-8;TYPE=HOME:;;12 avenue de bretagne;Dinan;;22100;France
+TITLE;CHARSET=UTF-8:Création  et refonte de sites web
+ORG;CHARSET=UTF-8:Lazez BZH Sites Web
+URL;type=WORK;CHARSET=UTF-8:https://lazezbzh.ovh/
+X-SOCIALPROFILE;TYPE=facebook:https://www.facebook.com/Lazez.BZH.Sites.Web
+REV:2024-06-03T11:24:11.882Z
+END:VCARD
